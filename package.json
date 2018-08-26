@@ -1,0 +1,44 @@
+{
+  "name": "cyf-app-starter",
+  "version": "1.0.0",
+  "description": "A simple Express and React application for CYF students",
+  "main": "client/server.js",
+  "scripts": {
+    "preinstall": "npm run install:client",
+    "install:client": "cd ./client && npm install",
+    "dev": "concurrently \"nodemon ./server/server.js\" \"npm run start:client\"",
+    "precommit": "npm run lint",
+    "prebuild": "rimraf \"./server/public/*\"",
+    "build": "cd ./client && npm run build",
+    "postbuild": "copy \"./client/build/**/*\" \"./server/public\"",
+    "start": "npm run build && node ./server/server.js",
+    "start:client": "cd ./client && cross-env PORT=4200 npm run start",
+    "test": "npm run test:client",
+    "test:client": "cd ./client && cross-env CI=true npm test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/textbook/cyf-app-starter.git"
+  },
+  "author": "Jonathan Sharpe",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/textbook/cyf-app-starter/issues"
+  },
+  "homepage": "https://github.com/textbook/cyf-app-starter#readme",
+  "devDependencies": {
+    "concurrently": "^4.0.0",
+    "copy": "^0.3.2",
+    "cross-env": "^5.2.0",
+    "nodemon": "^1.18.3",
+    "rimraf": "^2.6.2"
+  },
+  "dependencies": {
+    "express": "^4.16.3"
+  },
+  "nodemonConfig": {
+    "watch": [
+      "server"
+    ]
+  }
+}
