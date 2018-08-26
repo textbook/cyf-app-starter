@@ -39,6 +39,9 @@ This application provides the following helper functions:
     but if you make changes to the server you'll have to reload the page
     yourself.
 
+  - `npm run reinstall`: Delete all `package-lock.json` files and
+    `node_modules/` directories, then install everything again.
+
   [1]: https://codeyourfuture.io/
   [2]: https://help.github.com/articles/inviting-collaborators-to-a-personal-repository/
   [3]: https://help.github.com/articles/enabling-required-reviews-for-pull-requests/

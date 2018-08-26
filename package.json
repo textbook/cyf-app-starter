@@ -4,6 +4,9 @@
   "description": "A simple Express and React application for CYF students",
   "main": "client/server.js",
   "scripts": {
+    "uninstall:client": "rimraf \"./client/package-lock.json\" \"./client/node_modules\"",
+    "uninstall:server": "rimraf \"./package-lock.json\" \"./node_modules\"",
+    "reinstall": "npm run uninstall:client && npm run uninstall:server && npm install",
     "preinstall": "npm run install:client",
     "install:client": "cd ./client && npm install",
     "dev": "concurrently \"nodemon ./server/server.js\" \"npm run start:client\"",
