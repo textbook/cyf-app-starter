@@ -14,12 +14,12 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 // Enable push-state routing (e.g. with React Router's BrowserRouter)
 app.get('*', (req, res, next) => {
-    if (req.url.startsWith(API_ROOT_PATH)) {
-        return next();
-    }
-    res.sendFile(path.join(__dirname, 'public/index.html'));
+  if (req.url.startsWith(API_ROOT_PATH)) {
+    return next();
+  }
+  res.sendFile(path.join(__dirname, 'public/index.html'));
 });
 
 app.listen(PORT, () => {
-    console.debug(`Express started on port ${PORT}`);
+  console.debug(`Express started on port ${PORT}`);
 });

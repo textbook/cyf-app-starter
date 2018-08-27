@@ -9,7 +9,7 @@ Setup
 
 Choose one member of the team to own the primary project repository. Fork this
 repo into their account, then rename it as appopriate for your project. Other
-members of that team can then fork that primary repository. 
+members of that team can then fork that primary repository.
 
 [Add everyone as a collaborator][2] to the primary repository so you can
 review each other's pull requests. You can also protect the `master` branch
@@ -20,7 +20,9 @@ Development
 -----------
 
 Clone the primary repository, switch into that directory and run `npm install`
-to get ready for development.
+to get ready for development. If you're using VS Code, add the recommended
+extensions when prompted (you can see the list in `.vscode/extensions.json`
+if you need to install them manually).
 
 This application provides the following helper functions:
 
@@ -34,7 +36,7 @@ This application provides the following helper functions:
     reload as you make changes. Access the site on http://localhost:4200. The
     client is automatically proxied to the server (see below), which will be
     running on port 3000 as before.
-    
+
     **Note** that the client will auto-refresh the page when you make changes,
     but if you make changes to the server you'll have to reload the page
     yourself.
