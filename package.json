@@ -14,6 +14,7 @@
     "prebuild": "rimraf \"./server/public/*\"",
     "build": "cd ./client && npm run build",
     "postbuild": "copy \"./client/build/**/*\" \"./server/public\"",
+    "db:reset": "psql -a -d cyf -f ./data.sql",
     "start": "npm run build && node ./server/server.js",
     "start:client": "cd ./client && cross-env PORT=4200 npm run start",
     "test": "npm run test:client",
@@ -37,7 +38,8 @@
     "rimraf": "^2.6.2"
   },
   "dependencies": {
-    "express": "^4.16.3"
+    "express": "^4.16.3",
+    "pg": "^7.4.3"
   },
   "nodemonConfig": {
     "watch": [

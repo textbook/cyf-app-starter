@@ -14,6 +14,34 @@ each other's pull requests. You can also protect the `master` branch and [enable
 required reviews][3] to ensure that all code is reviewed by the other members of
 the team.
 
+## Database
+
+The application is set up to use [PostgreSQL][8], which must be installed and
+running for local development.
+
+- If you're using **Mac OS X**, the easiest way is to use [Homebrew][10]:
+
+  ```bash
+  brew install postgresql
+  brew services start postgresql
+  ```
+
+Once you have Postgres running as a service, create the database that the
+application expects:
+
+```bash
+psql -c "CREATE DATABASE cyf"
+```
+
+Like SQLite, PostgreSQL is a relational database, so most of the SQL syntax and
+commands you've learned will work just fine. The library used for accessing the
+database is [`node-postgres`][9]; read their docs for more information on how to
+execute queries.
+
+In production, you can use the environment variable `DATABASE_URL` to provide
+the appropriate connection string (some platforms, e.g. [Cloud Foundry][7], can
+set this for you).
+
 ## Development
 
 Clone the primary repository, switch into that directory and run `npm install`
@@ -36,6 +64,10 @@ This application provides the following helper functions:
 
   **Note** that the client will auto-refresh the page when you make changes, but
   if you make changes to the server you'll have to reload the page yourself.
+
+- `npm run db:reset`: Reset the database to a known state by running the
+  commands in `data.sql`. As you develop the application you can add other setup
+  commands into this file.
 
 - `npm run reinstall`: Delete all `package-lock.json` files and `node_modules/`
   directories, then install everything again. This is handy when you're having
@@ -81,3 +113,8 @@ to have in your front end application.
 [4]: https://developer.mozilla.org/en-US/docs/Web/HTTP/CORS
 [5]: https://EditorConfig.org
 [6]: https://prettier.io/
+[7]:
+  https://docs.cloudfoundry.org/devguide/deploy-apps/environment-variable.html#DATABASE-URL
+[8]: https://www.postgresql.org/
+[9]: https://node-postgres.com/
+[10]: https://brew.sh/
