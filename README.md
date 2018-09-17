@@ -44,10 +44,10 @@ set this for you).
 
 ## Development
 
-Clone the primary repository, switch into that directory and run `npm install`
-to get ready for development. If you're using VS Code, add the recommended
-extensions when prompted (you can see the list in `.vscode/extensions.json` if
-you need to install them manually).
+Clone the primary repository, switch into that directory and run
+`npm install:all` to get ready for development. If you're using VS Code, add the
+recommended extensions when prompted (you can see the list in
+`.vscode/extensions.json` if you need to install them manually).
 
 This application provides the following helper functions:
 
@@ -104,6 +104,18 @@ handled correctly. Any other path will be treated as a possible front end route.
 You can change the root path for API calls by setting `API_ROOT_PATH` in
 `server/server.js`, in case the default conflicts with a page you actually want
 to have in your front end application.
+
+## Deployment
+
+The application is set up for deployment using Docker containers. To help run
+this locally for testing purposes, two additional commands are provided in
+`package.json`:
+
+- `npm run docker:start`: Builds and starts the app container and an associated
+  PostgreSQL database container, which uses the same `data.sql` file as
+  `npm run db:reset` to initialise the container state.
+
+- `npm run docker:stop`: Stops the containers.
 
 [1]: https://codeyourfuture.io/
 [2]:

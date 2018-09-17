@@ -1,0 +1,14 @@
+version: '3'
+services:
+  app:
+    build: .
+    environment:
+      - DATABASE_URL=postgresql://postgres:randompass@db:5432/postgres
+    ports:
+      - '3000:3000'
+  db:
+    image: postgres:alpine
+    environment:
+      - POSTGRES_PASSWORD=randompass
+    volumes:
+      - ./data.sql:/docker-entrypoint-initdb.d/data.sql
