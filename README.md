@@ -51,11 +51,11 @@ recommended extensions when prompted (you can see the list in
 
 This application provides the following helper functions:
 
-- `npm run serve`: Create a production build of the client React app and copy
-  the files over to be served by the Express app, then start the Express app.
-  Access the site on http://localhost:3000. In this mode you must manually
-  restart the process when you make any changes, but this produces a single app
-  that's easier to deploy into production.
+- `npm start`: Create a production build of the client React app and copy the
+  files over to be served by the Express app, then start the Express app. Access
+  the site on http://localhost:3000. In this mode you must manually restart the
+  process when you make any changes, but this produces a single app that's
+  easier to deploy into production.
 
 - `npm run dev`: Run the server and the client in watch mode, so that they
   reload as you make changes. Access the site on http://localhost:4200. The
