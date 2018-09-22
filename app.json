@@ -1,0 +1,28 @@
+{
+  "name": "CYF App Starter",
+  "description": "Code Your Future application starter kit",
+  "repository": "https://github.com/textbook/cyf-app-starter",
+  "addons": [
+    {
+      "plan": "heroku-postgresql",
+      "options": {
+        "version": "9.5"
+      }
+    }
+  ],
+  "buildpacks": [
+    {
+      "url": "heroku/nodejs"
+    }
+  ],
+  "env": {
+    "NPM_CONFIG_PRODUCTION": {
+      "description": "Configure NPM production mode",
+      "value": true
+    }
+  },
+  "scripts": {
+    "heroku-prebuild": "npm run install:client && npm run build",
+    "start": "npm run start:server"
+  }
+}
