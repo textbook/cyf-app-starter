@@ -14,15 +14,5 @@
     {
       "url": "heroku/nodejs"
     }
-  ],
-  "env": {
-    "NPM_CONFIG_PRODUCTION": {
-      "description": "Configure NPM production mode",
-      "value": "true"
-    }
-  },
-  "scripts": {
-    "heroku-prebuild": "npm run install:all && npm run build",
-    "start": "npm run start:server"
-  }
+  ]
 }
