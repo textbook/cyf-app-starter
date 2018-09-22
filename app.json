@@ -22,7 +22,7 @@
     }
   },
   "scripts": {
-    "heroku-prebuild": "npm run install:client && npm run build",
+    "heroku-prebuild": "npm run install:all && npm run build",
     "start": "npm run start:server"
   }
 }
