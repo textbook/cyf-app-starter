@@ -4,7 +4,7 @@
   "repository": "https://github.com/textbook/cyf-app-starter",
   "addons": [
     {
-      "plan": "heroku-postgresql",
+      "plan": "heroku-postgresql:hobby-dev",
       "options": {
         "version": "9.5"
       }
@@ -18,7 +18,7 @@
   "env": {
     "NPM_CONFIG_PRODUCTION": {
       "description": "Configure NPM production mode",
-      "value": true
+      "value": "true"
     }
   },
   "scripts": {
