@@ -11,4 +11,4 @@ services:
     environment:
       - POSTGRES_PASSWORD=randompass
     volumes:
-      - ./data.sql:/docker-entrypoint-initdb.d/data.sql
+      - ./db/data.sql:/docker-entrypoint-initdb.d/data.sql

@@ -39,8 +39,8 @@ database is [`node-postgres`][9]; read their docs for more information on how to
 execute queries.
 
 In production, you can use the environment variable `DATABASE_URL` to provide
-the appropriate connection string (some platforms, e.g. [Cloud Foundry][7], can
-set this for you).
+the appropriate connection string (some platforms, e.g. [Cloud Foundry][7] and
+[Heroku][11], can set this for you).
 
 ## Development
 
@@ -66,8 +66,8 @@ This application provides the following helper functions:
   if you make changes to the server you'll have to reload the page yourself.
 
 - `npm run db:reset`: Reset the database to a known state by running the
-  commands in `data.sql`. As you develop the application you can add other setup
-  commands into this file.
+  commands in `db/data.sql`. As you develop the application you can add other
+  setup commands into this file.
 
 - `npm run reinstall`: Delete all `package-lock.json` files and `node_modules/`
   directories, then install everything again. This is handy when you're having
@@ -130,3 +130,5 @@ this locally for testing purposes, two additional commands are provided in
 [8]: https://www.postgresql.org/
 [9]: https://node-postgres.com/
 [10]: https://brew.sh/
+[11]:
+  https://devcenter.heroku.com/articles/heroku-postgresql#designating-a-primary-database

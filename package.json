@@ -15,7 +15,7 @@
     "prebuild": "rimraf \"./server/public/*\"",
     "build": "cd ./client && npm run build",
     "postbuild": "copy \"./client/build/**/*\" \"./server/public\"",
-    "db:reset": "psql -a -d cyf -f ./data.sql",
+    "db:reset": "node ./db/reset.js",
     "start": "npm run build && node ./server/server.js",
     "start:client": "cd ./client && cross-env PORT=4200 npm run start",
     "test": "npm run test:client:once",
