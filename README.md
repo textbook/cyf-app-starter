@@ -3,6 +3,8 @@
 This repo provides a simple Express and React starter application for [Code Your
 Future][1] students to base their final projects on.
 
+[![Deploy](https://www.herokucdn.com/deploy/button.svg)](https://heroku.com/deploy)
+
 ## Setup
 
 Choose one member of the team to own the primary project repository. Fork this
@@ -107,8 +109,8 @@ to have in your front end application.
 
 ## Deployment
 
-The application is set up for deployment using Docker containers. To help run
-this locally for testing purposes, two additional commands are provided in
+The application is set up for deployment using [Docker][12] containers. To help
+run this locally for testing purposes, two additional commands are provided in
 `package.json`:
 
 - `npm run docker:start`: Builds and starts the app container and an associated
@@ -116,6 +118,9 @@ this locally for testing purposes, two additional commands are provided in
   `npm run db:reset` to initialise the container state.
 
 - `npm run docker:stop`: Stops the containers.
+
+Alternatively you can deploy the application directly using [Heroku][13]; click
+the button at the top of the page to start the process.
 
 [1]: https://codeyourfuture.io/
 [2]:
@@ -132,3 +137,5 @@ this locally for testing purposes, two additional commands are provided in
 [10]: https://brew.sh/
 [11]:
   https://devcenter.heroku.com/articles/heroku-postgresql#designating-a-primary-database
+[12]: https://www.docker.com/
+[13]: https://www.heroku.com/
