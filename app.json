@@ -2,17 +2,13 @@
   "name": "CYF App Starter",
   "description": "Code Your Future application starter kit",
   "repository": "https://github.com/textbook/cyf-app-starter",
-  "addons": [
-    {
-      "plan": "heroku-postgresql:hobby-dev",
-      "options": {
-        "version": "9.5"
-      }
-    }
-  ],
+  "addons": ["heroku-postgresql:hobby-dev"],
   "buildpacks": [
     {
       "url": "heroku/nodejs"
     }
-  ]
+  ],
+  "scripts": {
+    "postdeploy": "npm run db:reset"
+  }
 }
