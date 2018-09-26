@@ -9,7 +9,7 @@
     "uninstall:client": "rimraf \"./client/package-lock.json\" \"./client/node_modules\"",
     "uninstall:server": "rimraf \"./package-lock.json\" \"./node_modules\"",
     "reinstall": "npm run uninstall:client && npm run uninstall:server && npm run install:all",
-    "install:all": "npm run install:client && npm run install",
+    "install:all": "npm run install:client && npm install",
     "install:client": "cd ./client && npm install",
     "dev": "concurrently \"nodemon ./server/server.js\" \"npm run start:client\"",
     "prebuild": "rimraf \"./server/public/*\"",
