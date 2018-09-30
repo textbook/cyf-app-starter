@@ -12,7 +12,9 @@ const pool = new Pool({ connectionString });
 module.exports = {
   query: (text, params, callback) => {
     return pool.query(text, params, (err, res) => {
-      console.log(err);
+      if (err) {
+        console.log(err);
+      }
       callback(err, res);
     });
   },
