@@ -47,8 +47,8 @@ the appropriate connection string (some platforms, e.g. [Cloud Foundry][7] and
 ## Development
 
 Clone the primary repository, switch into that directory and run
-`npm install:all` to get ready for development. If you're using VS Code, add the
-recommended extensions when prompted (you can see the list in
+`npm run install:all` to get ready for development. If you're using VS Code, add
+the recommended extensions when prompted (you can see the list in
 `.vscode/extensions.json` if you need to install them manually).
 
 This application provides the following helper functions:
