@@ -6,9 +6,20 @@ services:
       - DATABASE_URL=postgresql://postgres:randompass@db:5432/postgres
     ports:
       - '3000:3000'
+    links:
+      - db
   db:
     image: postgres:alpine
     environment:
       - POSTGRES_PASSWORD=randompass
     volumes:
       - ./db/data.sql:/docker-entrypoint-initdb.d/data.sql
+  pgadmin:
+    image: dpage/pgadmin4
+    links:
+      - db
+    ports:
+      - '5050:80'
+    environment:
+      - PGADMIN_DEFAULT_EMAIL=pgadmin4@pgadmin.org
+      - PGADMIN_DEFAULT_PASSWORD=admin

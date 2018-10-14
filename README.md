@@ -109,18 +109,34 @@ to have in your front end application.
 
 ## Deployment
 
-The application is set up for deployment using [Docker][12] containers. To help
-run this locally for testing purposes, two additional commands are provided in
-`package.json`:
+The application is set up for deployment using [Heroku][13]; click the button at
+the top of the page to start the process.
 
-- `npm run docker:start`: Builds and starts the app container and an associated
-  PostgreSQL database container, which uses the same `data.sql` file as
-  `npm run db:reset` to initialise the container state.
+Alternatively you can deploy the application using [Docker][12] containers.
+
+## Docker
+
+To help run the Docker build locally for testing purposes, two additional
+commands are provided in `package.json`:
+
+- `npm run docker:start`: Builds and starts the app container, an associated
+  PostgreSQL database container (which uses the same `data.sql` file as
+  `npm run db:reset` to initialise the container state) and a [pgAdmin
+  panel][14] to help view and edit the data.
 
 - `npm run docker:stop`: Stops the containers.
 
-Alternatively you can deploy the application directly using [Heroku][13]; click
-the button at the top of the page to start the process.
+To connect to the admin panel visit http://localhost:5050 and log in using the
+default credentials (email: pgadmin4@pgadmin.org, password: admin). You can then
+connect the panel to the database by clicking Add New Server, proving a name
+(e.g. "CYF") and entering the following details on the Connection tab (leave the
+rest as defaults):
+
+- Host name/address: db
+- Username: postgres
+- Password: randompass
+
+These credentials are all visible and editable in the `docker-compose.yml` file.
 
 [1]: https://codeyourfuture.io/
 [2]:
@@ -139,3 +155,4 @@ the button at the top of the page to start the process.
   https://devcenter.heroku.com/articles/heroku-postgresql#designating-a-primary-database
 [12]: https://www.docker.com/
 [13]: https://www.heroku.com/
+[14]: https://hub.docker.com/r/dpage/pgadmin4/
