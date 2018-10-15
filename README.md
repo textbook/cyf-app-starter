@@ -116,7 +116,7 @@ Alternatively you can deploy the application using [Docker][12] containers.
 
 ## Docker
 
-To help run the Docker build locally for testing purposes, two additional
+To help run the Docker build locally for testing purposes, four additional
 commands are provided in `package.json`:
 
 - `npm run docker:start`: Builds and starts the app container, an associated
@@ -124,19 +124,26 @@ commands are provided in `package.json`:
   `npm run db:reset` to initialise the container state) and a [pgAdmin
   panel][14] to help view and edit the data.
 
-- `npm run docker:stop`: Stops the containers.
+- `npm run docker:stop`: Stops and removes the containers.
 
-To connect to the admin panel visit http://localhost:5050 and log in using the
-default credentials (email: pgadmin4@pgadmin.org, password: admin). You can then
-connect the panel to the database by clicking Add New Server, proving a name
-(e.g. "CYF") and entering the following details on the Connection tab (leave the
-rest as defaults):
+- `npm run docker:dev:start`: Starts the app in containers as above but using
+  the dev mode, mounting your local volumns into the separate server and client
+  containers so that they will be reloaded as you edit them.
+
+- `npm run docker:dev:stop`: Removes the containers.
+
+To connect to the admin panel in either mode visit http://localhost:5050 and log
+in using the default credentials (email: `pgadmin4@pgadmin.org`, password:
+`admin`). You can then connect the panel to the database by clicking Add New
+Server, proving a name (e.g. "CYF") and entering the following details on the
+Connection tab (leave the rest as defaults):
 
 - Host name/address: db
 - Username: postgres
 - Password: randompass
 
-These credentials are all visible and editable in the `docker-compose.yml` file.
+These credentials are all visible and editable in the `docker-compose.yml` and
+`docker-compose.dev.yml` files.
 
 [1]: https://codeyourfuture.io/
 [2]:

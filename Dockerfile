@@ -13,13 +13,12 @@ COPY /client/src ./src
 RUN npm run build
 
 FROM node:carbon-alpine
-WORKDIR /server
 COPY /package.json .
 COPY /package-lock.json .
 
 RUN npm install --only=prod
 
-COPY /server .
-COPY --from=react /client/build /public
+COPY /server /server
+COPY --from=react /client/build /server/public
 
-CMD node server.js
+CMD npm run start:server

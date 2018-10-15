@@ -1,0 +1,12 @@
+FROM node:carbon-alpine
+
+RUN npm install -g nodemon
+
+COPY /package.json .
+COPY /package-lock.json .
+
+RUN npm install --only=prod
+
+COPY /server /server
+
+CMD npm run start:server:dev

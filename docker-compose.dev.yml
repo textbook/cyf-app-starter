@@ -1,0 +1,41 @@
+version: '3.2'
+services:
+  client:
+    build: ./client
+    environment:
+      - PORT=4200
+      - REACT_PROXY=http://server:3000/
+    ports:
+      - '4200:4200'
+    links:
+      - server
+    volumes:
+      - ./client/public:/public
+      - ./client/src:/src
+  server:
+    build:
+      context: .
+      dockerfile: Dockerfile-dev
+    environment:
+      - DATABASE_URL=postgresql://postgres:randompass@db:5432/postgres
+    ports:
+      - '3000:3000'
+    links:
+      - db
+    volumes:
+      - ./server:/server
+  db:
+    image: postgres:alpine
+    environment:
+      - POSTGRES_PASSWORD=randompass
+    volumes:
+      - ./db/data.sql:/docker-entrypoint-initdb.d/data.sql
+  pgadmin:
+    image: dpage/pgadmin4
+    links:
+      - db
+    ports:
+      - '5050:80'
+    environment:
+      - PGADMIN_DEFAULT_EMAIL=pgadmin4@pgadmin.org
+      - PGADMIN_DEFAULT_PASSWORD=admin
